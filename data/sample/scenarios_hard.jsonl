@@ -1,0 +1,25 @@
+{"id":"H01_simple_general","query":"I need guidance to update contact preferences for newsletter emails.","expected_route":"simple","requires_approval":false,"should_retry":false,"tags":["simple","long_form"]}
+{"id":"H02_simple_pronoun_length_boundary","query":"Can you fix this right now?","expected_route":"simple","requires_approval":false,"should_retry":false,"tags":["simple","boundary_len"]}
+{"id":"H03_tool_lookup_order","query":"Please lookup order status for order 99887.","expected_route":"tool","requires_approval":false,"should_retry":false,"tags":["tool","order"]}
+{"id":"H04_tool_track_uppercase","query":"TRACK shipment status for order 55661","expected_route":"tool","requires_approval":false,"should_retry":false,"tags":["tool","casefold"]}
+{"id":"H05_tool_over_error_priority","query":"Check order status, timeout shown on billing page.","expected_route":"tool","requires_approval":false,"should_retry":false,"tags":["tool","priority","tool_over_error"]}
+{"id":"H06_tool_over_missing_priority","query":"Can you check it?","expected_route":"tool","requires_approval":false,"should_retry":false,"tags":["tool","priority","tool_over_missing"]}
+{"id":"H07_missing_info_it","query":"Can you fix it?","expected_route":"missing_info","requires_approval":false,"should_retry":false,"tags":["missing_info","pronoun"]}
+{"id":"H08_missing_info_this","query":"Please handle this.","expected_route":"missing_info","requires_approval":false,"should_retry":false,"tags":["missing_info","pronoun"]}
+{"id":"H09_simple_word_boundary_item","query":"Need item details.","expected_route":"simple","requires_approval":false,"should_retry":false,"tags":["simple","word_boundary"]}
+{"id":"H10_error_timeout","query":"Timeout happened while processing support request.","expected_route":"error","requires_approval":false,"should_retry":true,"tags":["error","retry"]}
+{"id":"H11_error_unavailable_crash","query":"Service unavailable after crash overnight.","expected_route":"error","requires_approval":false,"should_retry":true,"tags":["error","retry"]}
+{"id":"H12_error_failure","query":"Critical failure in worker pipeline.","expected_route":"error","requires_approval":false,"should_retry":true,"tags":["error","retry"]}
+{"id":"H13_risky_refund_and_send","query":"Refund this customer and send confirmation email.","expected_route":"risky","requires_approval":true,"should_retry":false,"tags":["risky","approval_required"]}
+{"id":"H14_risky_over_tool_priority","query":"Delete customer account and check order status.","expected_route":"risky","requires_approval":true,"should_retry":false,"tags":["risky","priority","risky_over_tool"]}
+{"id":"H15_risky_over_error_priority","query":"Cancel subscription due to timeout issue.","expected_route":"risky","requires_approval":true,"should_retry":false,"tags":["risky","priority","risky_over_error"]}
+{"id":"H16_risky_uppercase_keyword","query":"Please REMOVE access for user 42.","expected_route":"risky","requires_approval":true,"should_retry":false,"tags":["risky","casefold"]}
+{"id":"H17_error_dead_letter_max1","query":"System failure cannot recover after multiple attempts.","expected_route":"error","requires_approval":false,"should_retry":true,"max_attempts":1,"tags":["error","retry","dead_letter"]}
+{"id":"H18_error_eventual_success_max3","query":"Timeout failure while processing request.","expected_route":"error","requires_approval":false,"should_retry":true,"max_attempts":3,"tags":["error","retry","recoverable"]}
+{"id":"H19_error_dead_letter_max2","query":"Service unavailable due to crash.","expected_route":"error","requires_approval":false,"should_retry":true,"max_attempts":2,"tags":["error","retry","dead_letter"]}
+{"id":"H20_risky_revoke_access","query":"Revoke all API keys for this account.","expected_route":"risky","requires_approval":true,"should_retry":false,"tags":["risky","approval_required"]}
+{"id":"H21_tool_find_search_combo","query":"Find and search order history for account 555.","expected_route":"tool","requires_approval":false,"should_retry":false,"tags":["tool","multi_keyword"]}
+{"id":"H22_simple_vietnamese","query":"Huong dan toi cap nhat ho so ho tro.","expected_route":"simple","requires_approval":false,"should_retry":false,"tags":["simple","multilingual"]}
+{"id":"H23_missing_info_stuff","query":"Need stuff.","expected_route":"missing_info","requires_approval":false,"should_retry":false,"tags":["missing_info","pronoun"]}
+{"id":"H24_tool_lookup_question","query":"Could you lookup whether order 111 was delivered?","expected_route":"tool","requires_approval":false,"should_retry":false,"tags":["tool","lookup"]}
+{"id":"H25_risky_short_command","query":"Delete it.","expected_route":"risky","requires_approval":true,"should_retry":false,"tags":["risky","priority","short_query"]}

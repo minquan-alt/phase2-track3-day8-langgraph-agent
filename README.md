@@ -166,6 +166,29 @@ Pick one or more:
 - **Crash recovery**: Show SQLite checkpoint survives process kill + restart
 - **Graph diagram**: Export Mermaid diagram via `graph.get_graph().draw_mermaid()`
 
+### Demo checklist commands (quick run)
+
+```bash
+# 1) Run all scenarios + metrics validation
+make run-scenarios
+make grade-local
+
+# 2) HITL interrupt/resume (CLI)
+make demo-hitl-start
+make demo-hitl-resume
+
+# 3) Crash recover demo (simulate restart between 2 commands)
+make demo-crash-start
+make demo-crash-resume
+
+# 4) Time travel checkpoint history
+make demo-time-travel
+
+# 5) HITL UI (optional visual demo)
+pip install -e '.[ui]'
+make demo-hitl-ui
+```
+
 ---
 
 ## Make commands
@@ -178,6 +201,12 @@ Pick one or more:
 | `make typecheck` | Run mypy type checker |
 | `make run-scenarios` | Execute all scenarios → `outputs/metrics.json` |
 | `make grade-local` | Validate metrics.json schema |
+| `make demo-hitl-start` | Start risky flow and pause at approval interrupt |
+| `make demo-hitl-resume` | Resume paused thread with approval decision |
+| `make demo-crash-start` | Start crash-recovery demo (phase start) |
+| `make demo-crash-resume` | Resume crash-recovery demo (phase resume) |
+| `make demo-time-travel` | Print checkpoint history for one thread_id |
+| `make demo-hitl-ui` | Launch Streamlit HITL UI |
 | `make clean` | Remove caches and generated files |
 
 ---

@@ -6,9 +6,9 @@ Students should extend the schema only when needed. Keep state lean and serializ
 from __future__ import annotations
 
 from enum import StrEnum
-from typing import Annotated, Any, TypedDict
-
 from operator import add
+from typing import Annotated, TypedDict
+
 from pydantic import BaseModel, Field, field_validator
 
 
@@ -29,7 +29,7 @@ class LabEvent(BaseModel):
     event_type: str
     message: str
     latency_ms: int = 0
-    metadata: dict[str, Any] = Field(default_factory=dict)
+    metadata: dict[str, object] = Field(default_factory=dict)
 
 
 class ApprovalDecision(BaseModel):
@@ -55,12 +55,12 @@ class AgentState(TypedDict, total=False):
     final_answer: str | None
     pending_question: str | None
     proposed_action: str | None
-    approval: dict[str, Any] | None
+    approval: dict[str, object] | None
     evaluation_result: str | None
     messages: Annotated[list[str], add]
     tool_results: Annotated[list[str], add]
     errors: Annotated[list[str], add]
-    events: Annotated[list[dict[str, Any]], add]
+    events: Annotated[list[dict[str, object]], add]
 
 
 class Scenario(BaseModel):
@@ -102,6 +102,16 @@ def initial_state(scenario: Scenario) -> AgentState:
     }
 
 
-def make_event(node: str, event_type: str, message: str, **metadata: Any) -> dict[str, Any]:
+def make_event(
+    node: str,
+    event_type: str,
+    message: str,
+    **metadata: object,
+) -> dict[str, object]:
     """Create a normalized event payload."""
-    return LabEvent(node=node, event_type=event_type, message=message, metadata=metadata).model_dump()
+    return LabEvent(
+        node=node,
+        event_type=event_type,
+        message=message,
+        metadata=metadata,
+    ).model_dump()
